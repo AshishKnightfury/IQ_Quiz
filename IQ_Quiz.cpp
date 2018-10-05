@@ -1,20 +1,25 @@
-#include<iostream.h>
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include<iostream>
 #include<conio.h>
-#include<stdlib.h>
+#include<cstdlib>
+#include<time.h>
+
+using namespace std;
 void main()
 {
 	int i,q,marks=0,cho;
 	char ans[5];
-        clrscr();
-        randomize();
-        cout<<"\n\t\tWelcome!!Wanna check your iq??\n\n\n\n";
-        cout<<"The test begins here:-\n\n";
-        cout<<"Instructions:"<<endl<<"*Time limit: 5mins."<<endl<<"*Type your answer from the options given below the questions."<<endl;
-        cout<<"*There is negative marking for each wrong answer.\n"<<"*This game is very easy .So don't fly after the results.\n";
+	srand(time(NULL));
+    cout<<"\n\t\tWelcome!!Wanna check your iq??\n\n\n\n";
+    cout<<"The test begins here:-\n\n";
+    cout<<"Instructions:"<<endl<<"*Time limit: 5mins."<<endl<<"*Type your answer from the options given below the questions."<<endl;
+    cout<<"*There is negative marking for each wrong answer.\n"<<"*This game is very easy .So don't fly after the results.\n";
 	cout<<"*Don't take the it seriously .It's only a game.\n\n\n";
         for(i=0;i<5;i++)
         {
-        	q=random(22);
+        	q=rand()%22;
                 cout<<"Q"<<i+1<<".>";
                 if(q==0)
                 {
@@ -390,5 +395,4 @@ void main()
 		}
 	}
         cout<<"Your result is:"<<marks*20<<"/200";
-        getch();
 }
