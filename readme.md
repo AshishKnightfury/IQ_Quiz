@@ -2,6 +2,11 @@
 
 A command line based quiz.
 
+A screenshot:
+![alt text][screenshot]
+
+[screenshot]: ./screenshot.png "Screenshot of the app"
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine.
