@@ -1,0 +1,8 @@
+#ignore Visual Studio files
+.vs
+Debug
+*.vcxproj.user
+
+#ignore binaries
+/**/bin
+/**/bin-int
