@@ -1,30 +1,31 @@
 // ConsoleApplication4.cpp : Defines the entry point for the console application.
 //
 
-#include<iostream>
-#include<conio.h>
-#include<cstdlib>
-#include<time.h>
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
+
 void main()
 {
     int i, q, marks = 0, cho;
     char ans[5];
-    srand(time(NULL));
-    cout << "\n\t\tWelcome!!Wanna check your iq??\n\n\n\n";
-    cout << "The test begins here:-\n\n";
+    srand(time(0));
+
+    cout << "\n\t\tWelcome!! Wanna check your iq??\n\n\n\n";
+    cout << "The test begins here:\n\n";
     cout << "Instructions:" << endl << "*Time limit: 5mins." << endl << "*Type your answer from the options given below the questions." << endl;
-    cout << "*There is negative marking for each wrong answer.\n" << "*This game is very easy .So don't fly after the results.\n";
-    cout << "*Don't take the it seriously .It's only a game.\n\n\n";
+    cout << "*There is negative marking for each wrong answer.\n" << "*This game is very easy. So don't fly after the results.\n";
+    cout << "*Don't take the it seriously. It's only a game.\n\n\n";
     for (i = 0; i < 5; i++)
     {
-        q = rand() % 22;
+        q = rand() % 20;
         cout << "Q" << i + 1 << ".>";
         if (q == 0)
         {
-            cout << "Please enter the missing number:4,8,14,22,?";
-            cout << "\n\t1.)26\t\t2.)28" << endl << "\t3.)32\t\t4.)36";
+            cout << "Please enter the missing number: 4, 8, 14, 22, ?";
+            cout << "\n\t1.) 26\t\t2.) 28" << endl << "\t3.) 32\t\t4.) 36";
             cout << "\nans.= ";
             cin >> ans[i];
             if (ans[i] == '3')
@@ -40,8 +41,8 @@ void main()
         }
         else if (q == 1)
         {
-            cout << "Please enter the missing number:3,6,18,72,?";
-            cout << "\n\t1.)144\t\t2.)214" << endl << "\t3.)272\t\t4.)360";
+            cout << "Please enter the missing number:3, 6, 18, 72, ?";
+            cout << "\n\t1.) 144\t\t2.) 214" << endl << "\t3.) 272\t\t4.) 360";
             cout << "\nans.= ";
             cin >> ans[i];
             if (ans[i] == '4')
@@ -387,6 +388,7 @@ void main()
         cin >> cho;
         if (cho == 1)
         {
+            cout << "Your result is:" << marks * 20 << "/200";
             exit(0);
         }
         else if (cho == '2')
@@ -394,5 +396,4 @@ void main()
             cout << ".";
         }
     }
-    cout << "Your result is:" << marks * 20 << "/200";
 }
