@@ -1,9 +1,10 @@
-#include <iostream>
+﻿#include <iostream>
 #include <cstdlib>
 #include <string>
 #include <fstream>
 #include <array>
 #include <vector>
+#include <algorithm>
 
 #include "./vendor/nlohmann-json/json.hpp"
 
@@ -17,6 +18,7 @@ struct Question
 void printUsage(char*);
 nlohmann::json parseJson(std::string);
 std::vector<Question> json2Question(nlohmann::json&);
+void runQuiz(std::vector<Question>&);
 
 int main(int argc, char* argv[])
 {
@@ -35,6 +37,9 @@ int main(int argc, char* argv[])
         //convert it into vector<Question>
         std::vector<Question> questionList;
         questionList = json2Question(questionsJson);
+
+        //run quiz
+        runQuiz(questionList);
     }
     else
     {
@@ -92,4 +97,96 @@ std::vector<Question> json2Question(nlohmann::json& jsonQ)
     }
 
     return vecQ;
+}
+
+void runQuiz(std::vector<Question>& questionList)
+{
+    std::cout << "Welcome! Wanna check your iq?\n"
+        << "The test begins here.\n\n"
+        << "Instructions:\n"
+        << "\tType the option number to select answer for the question.\n"
+        << "\tThere is negative marking for each wrong answer.\n"
+        << "\tThis game is very easy, so don't fly after the results.\n"
+        << "\tFinally, don't take the this seriously, it's only a game.\n";
+
+    std::cout << "Ready? (y/n) ";
+    std::string ready;
+    std::cin >> ready;
+    std::cout << "\n";
+    std::transform(ready.begin(), ready.end(), ready.begin(), [](unsigned char c) { return std::tolower(c); });
+    if (ready == "n" || ready == "no")
+    {
+        std::cout << "That's alright. Exiting for now; you can play again by starting this program\n";
+        return;
+    }
+    else if (ready == "y" || ready == "yes")
+    {
+        std::cout << "Cool! Starting in 3..2..1\n\n";
+
+        //Initialize score to zero
+        int score = 0;
+        int maxScore = 0;
+
+        for (auto q : questionList)
+        {
+            //print question text
+            std::cout << q.txt << "\n";
+            maxScore += 2;
+
+            //print options
+            for (int i = 1; i <= 4; ++i)
+            {
+                std::cout << i << ". " << q.option[i - 1] << "\n";
+            }
+
+            //get user input
+            std::cout << "\nAnswer: ";
+            std::string in;
+            std::cin >> in;
+            std::cout << "\n";
+
+            //parse user input
+            if (in.size() != 1)
+            {
+                std::cout << "What is this? Enter an option between 1 and 4\n"
+                    << "Points will be deducted\n\n";
+                --score;
+            }
+            else
+            {
+                //parse char to int
+                int userAns = (int)(in[0] - '0');
+
+                //evaluate answer
+                if (userAns == q.ans)
+                {
+#ifdef _WIN32 //Wasn't able to get emojis working correctly in Windows 10 1909 with MSVC 2019
+                    std::cout << "Correct!" << "\n\n";
+#else         //Ubuntu on WSL with g++ woks fine with emojis
+                    std::cout << "\xE2\x9C\x94\xEF\xB8\x8F" << "\n\n";
+#endif
+                    score += 2;
+                }
+                else
+                {
+#ifdef _WIN32 //Wasn't able to get emojis working correctly in Windows 10 1909 with MSVC 2019
+                    std::cout << "Wrong!" << "\n\n";
+#else         //Ubuntu on WSL with g++ woks fine with emojis
+                    std::cout << "\xE2\x9D\x8C" << "\n\n";
+#endif
+                    score -= 1;
+                }
+            }
+        }
+
+        std::cout << "You scored: " << score
+            << " out of " << maxScore << "\n";
+        std::cout << "\nThanks for playing!\n";
+    }
+    else
+    {
+        std::cout << "Wut? I didn't get that. Try again after you restart the program\n";
+        std::cout << "Exiting\n";
+        return;
+    }
 }
