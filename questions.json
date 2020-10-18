@@ -3,37 +3,37 @@
 		{
 			"txt": "Please enter the missing number: 4, 8, 14, 22, ?",
 			"option": ["26", "28", "32", "36"],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "Please enter the missing number:3, 6, 18, 72, ?",
 			"option": ["144", "214", "272", "360"],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "Please enter the missing number:3,4,8,17,33,?",
 			"option": ["50", "58", "66", "Not Defined"],
-			"ans": "2"
+			"ans": 2
 		},
 		{
 			"txt": "Please enter the missing number:4,5,8,17,44,?",
 			"option": ["34", "88", "32", "125"],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "What is the number that is one-half of one-quarter of one-third of 264 ?",
 			"option": ["14", "11", "13", "16"],
-			"ans": "2"
+			"ans": 2
 		},
 		{
 			"txt": "One word in this list doesn't belong to the same group Reciever,Reviver,Range,Radar",
 			"option": ["Reviver", "Reciever", "Range", "Radar"],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "One word in this list doesn't belong to the same group Yen,Pound,Franc,Penny,Mark",
 			"option": ["Yen", "Franc", "Penny", "Mark"],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "I'm a male. If Albert's son is my son's father,what is the relationship between Albrt and me?",
@@ -43,7 +43,7 @@
 				"He is my father",
 				"He is not related to me"
 			],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "A UFO was detected on the Radar flying 7400 miles in 3 mins,what is the estimated speed per hour ?",
@@ -53,22 +53,22 @@
 				"14080 miles/h",
 				"148000 miles/h"
 			],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "There are 12 pens on the table,you took 3,how many do you have ?",
 			"option": ["3", "7", "0", "5"],
-			"ans": "1"
+			"ans": 1
 		},
 		{
 			"txt": "A spy is trying to send a secret message,we're trying to decode his message,we need your help!\nif (shnoppy droppy groppy) means (mission dangerously executed)\nif (swappy trappy droppy) means (abort mission immediately)\nif (drippy groppy wippy) means (plan executed successfully)\nThen what does shnoppy mean?",
 			"option": ["mission", "dangerously", "executed", "successfully"],
-			"ans": "2"
+			"ans": 2
 		},
 		{
 			"txt": "Today is WEDNESDAY .What will be the fourth day from yesterday?",
 			"option": ["Friday", "Sunday", "Saturday", "None of these"],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "What is the result of multiplying all figures from 0 to 25?",
@@ -78,47 +78,47 @@
 				"1.551121*10^26",
 				"None of these"
 			],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "Library is to book as book is to ...?",
 			"option": ["Page", "Notes", "Copy", "Information"],
-			"ans": "1"
+			"ans": 1
 		},
 		{
 			"txt": "At a birthday party, 10 people exchange Gifts with each other .How many gifts are exchanged ?",
 			"option": ["100", "90", "91", "99"],
-			"ans": "2"
+			"ans": 2
 		},
 		{
 			"txt": "Which word doesn't fit ?",
 			"option": ["Smiling", "Hearing", "Smelling", "Seeing"],
-			"ans": "1"
+			"ans": 1
 		},
 		{
 			"txt": "The result of 2^6 divided by 8^2 is ?",
 			"option": ["4", "16", "2", "1"],
-			"ans": "4"
+			"ans": 4
 		},
 		{
 			"txt": "If you rearrange the letters 'FPACIIC' you would have the name of a(n) ?",
 			"option": ["City", "Animal", "Ocean", "Country"],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "Please choose the word not matching(content) the other words (odd one out).",
 			"option": ["Jelly fish", "Eel", "Dolphin", "Stingray"],
-			"ans": "3"
+			"ans": 3
 		},
 		{
 			"txt": "Rearrange the following words 'OONVEL' .You would get the name of a ?",
 			"option": ["Supercar", "Company", "Movie", "Satellite"],
-			"ans": "2"
+			"ans": 2
 		},
 		{
 			"txt": "Find the result of {{{[(3^2)^]1^}0}4}.",
 			"option": ["4", "2981", "729", "1"],
-			"ans": "1"
+			"ans": 1
 		}
 	]
 }
