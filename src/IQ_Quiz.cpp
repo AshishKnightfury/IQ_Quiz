@@ -16,7 +16,7 @@ struct Question
 
 void printUsage(char*);
 nlohmann::json parseJson(std::string);
-void json2Question(nlohmann::json&, std::vector<Question>&);
+std::vector<Question> json2Question(nlohmann::json&);
 
 int main(int argc, char* argv[])
 {
@@ -34,7 +34,7 @@ int main(int argc, char* argv[])
 
         //convert it into vector<Question>
         std::vector<Question> questionList;
-        json2Question(questionsJson, questionList);
+        questionList = json2Question(questionsJson);
     }
     else
     {
@@ -77,8 +77,10 @@ nlohmann::json parseJson(std::string filePath)
     }
 }
 
-void json2Question(nlohmann::json& jsonQ, std::vector<Question>& vecQ)
+std::vector<Question> json2Question(nlohmann::json& jsonQ)
 {
+    std::vector<Question> vecQ;
+
     for (auto q : jsonQ["q"])
     {
         Question temp;
@@ -88,4 +90,6 @@ void json2Question(nlohmann::json& jsonQ, std::vector<Question>& vecQ)
 
         vecQ.push_back(temp);
     }
+
+    return vecQ;
 }
