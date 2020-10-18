@@ -71,7 +71,7 @@ nlohmann::json parseJson(std::string filePath)
     else //if file open failed
     {
         char errmsg[256];
-#ifdef _WIN32 //strerror_s for windows
+#ifdef _WIN32 //strerror_s for Windows
         strerror_s(errmsg, sizeof(errmsg), errno);
 #else //strerror_r for POSIX
         strerror_r(errno, errmsg, sizeof(errmsg));
@@ -161,18 +161,22 @@ void runQuiz(std::vector<Question>& questionList)
                 if (userAns == q.ans)
                 {
 #ifdef _WIN32 //Wasn't able to get emojis working correctly in Windows 10 1909 with MSVC 2019
-                    std::cout << "Correct!" << "\n\n";
-#else         //Ubuntu on WSL with g++ woks fine with emojis
-                    std::cout << "\xE2\x9C\x94\xEF\xB8\x8F" << "\n\n";
+                    std::cout << "Correct!"
+                        << "\n\n";
+#else //Ubuntu on WSL with g++ woks fine with emojis (using Windows Terminal)
+                    std::cout << "\xE2\x9C\x94\xEF\xB8\x8F"
+                        << "\n\n";
 #endif
                     score += 2;
                 }
                 else
                 {
 #ifdef _WIN32 //Wasn't able to get emojis working correctly in Windows 10 1909 with MSVC 2019
-                    std::cout << "Wrong!" << "\n\n";
-#else         //Ubuntu on WSL with g++ woks fine with emojis
-                    std::cout << "\xE2\x9D\x8C" << "\n\n";
+                    std::cout << "Wrong!"
+                        << "\n\n";
+#else //Ubuntu on WSL with g++ woks fine with emojis
+                    std::cout << "\xE2\x9D\x8C"
+                        << "\n\n";
 #endif
                     score -= 1;
                 }
