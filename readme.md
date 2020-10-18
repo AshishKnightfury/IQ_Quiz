@@ -5,7 +5,7 @@ A command line based quiz.
 A screenshot:
 ![alt text][screenshot]
 
-[screenshot]: ./screenshot.png "Screenshot of the app"
+[screenshot]: ./screenshot.png "Screenshot of the app running on Ubuntu on WSL (Windows Terminal)"
 
 ## Getting Started
 
@@ -15,10 +15,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ```
 > A modern C++ compiler
-> Visual Studio 2019 (comes with MSVC Compiler as part of the Desktop Development for C++ module)
+> Either Visual Studio 2019 (on Windows) or g++ compilers are recommended
 ```
 
-The project and the solution files were made for Visual Studio 2019. However, the code is standard C++ and any compiler should work.
+The project and the solution files were made for Visual Studio 2019. However, the code is standard C++ and any compiler should work (tested on MSCV 2019 on Windows 10 and g++ on Ubuntu on WSL)
 
 ### Running
 
@@ -29,9 +29,19 @@ git clone https://github.com/AshishKnightfury/IQ_Quiz.git
 cd IQ_Quiz
 ```
 
+#### Windows:
+
 -   Open the solution file in Visual Studio
 -   Right click and select 'build'. The executables are built in the `bin` directory
--   Run the compiled executable
+-   Run the compiled executable as `IQ_Quiz.exe -f <repo directory>\questions.json`
+
+#### Linux:
+
+-   Navigate to src folder `cd src`
+-   Compile the code `g++ IQ_Quiz.cpp`
+-   Run the output file `./a.out -f ./../questions.json`
+
+_A sample list of questions is provided in `questions.json`. However, you can use your own questions using a JSON file in the same format. Keep in mind that the app in its current state only supports 4 options per question._
 
 ## How the repo is structured
 
@@ -46,4 +56,4 @@ _This is how the repository is structured. Support for a build system like prema
 
 _Initial work_ - [AshishKnightfury](https://github.com/AshishKnightfury)
 
-See also the list of [contributors](https://github.com/your/project/contributors).
+See also the list of [contributors](https://github.com/AshishKnightfury/IQ_Quiz/contributors).
