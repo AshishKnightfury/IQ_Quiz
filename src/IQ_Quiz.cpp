@@ -2,11 +2,21 @@
 #include <cstdlib>
 #include <string>
 #include <fstream>
+#include <array>
+#include <vector>
 
 #include "./vendor/nlohmann-json/json.hpp"
 
+struct Question
+{
+    std::string txt;
+    std::array<std::string, 4> option;
+    int ans;
+};
+
 void printUsage(char*);
 nlohmann::json parseJson(std::string);
+void json2Question(nlohmann::json&, std::vector<Question>&);
 
 int main(int argc, char* argv[])
 {
@@ -18,8 +28,13 @@ int main(int argc, char* argv[])
 
     if (std::string(argv[1]) == "-f")
     {
+        //parse given JSON file
         std::string filePath(argv[2]);
-        nlohmann::json questions = parseJson(filePath); //parse given JSON file
+        nlohmann::json questionsJson = parseJson(filePath);
+
+        //convert it into vector<Question>
+        std::vector<Question> questionList;
+        json2Question(questionsJson, questionList);
     }
     else
     {
@@ -59,5 +74,18 @@ nlohmann::json parseJson(std::string filePath)
         std::cerr << "The file could not be opened\n";
         std::cerr << "Error: " << errmsg << "\n";
         exit(EXIT_FAILURE);
+    }
+}
+
+void json2Question(nlohmann::json& jsonQ, std::vector<Question>& vecQ)
+{
+    for (auto q : jsonQ["q"])
+    {
+        Question temp;
+        temp.txt = q["txt"].get<std::string>();
+        temp.ans = q["ans"].get<int>();
+        temp.option = q["option"].get<std::array<std::string, 4>>();
+
+        vecQ.push_back(temp);
     }
 }
